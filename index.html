@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>Matador de Monstro</title>
+    <title>Monster Killer</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
     <script src="https://unpkg.com/vue@2"></script>
@@ -10,7 +10,7 @@
     <div id="app">
         <div class="panel scores">
             <div class="score">
-                <h1>Jogador</h1>
+                <h1>Player</h1>
                 <div class="life-bar">
                     <div class="life" :class="{danger: playerLife <20}" 
                     :style="{width: playerLife + '%'}">
@@ -20,7 +20,7 @@
                 <div></div>
             </div>
             <div class="score">
-                <h1>Monstro</h1>
+                <h1>Monster</h1>
                 <div class="life-bar">
                     <div class="life" :class="{danger: monsterLife <20}" 
                     :style="{width: monsterLife + '%'}">
@@ -31,17 +31,17 @@
             </div>
         </div>
         <div v-if="hasResult" class="panel result">
-            <div v-if="monsterLife==0" class="win">Você ganhou!!! :)</div>
-            <div v-else="playerLife == 0" class="lose">Você perdeu! :(</div>
+            <div v-if="monsterLife==0" class="win">You Won!!! :)</div>
+            <div v-else="playerLife == 0" class="lose">You lose!!! :(</div>
         </div>
         <div class="panel buttons">
             <template v-if="running">
-                <button @click="attack(false)" class="btn attack">Ataque</button>
-                <button @click="attack(true)" class="btn especial-attack">Ataque Especial</button>
-                <button @click="healAndHurt" class="btn heal">Curar</button>
-                <button @click="running = false" class="btn give-up">Desistir</button>
+                <button @click="attack(false)" class="btn attack">Attack</button>
+                <button @click="attack(true)" class="btn especial-attack">Special Attack</button>
+                <button @click="healAndHurt" class="btn heal">Heal</button>
+                <button @click="running = false" class="btn give-up">Quit</button>
             </template>
-            <button v-else @click="startGame" class="btn new-game">Iniciar Jogo</button>
+            <button v-else @click="startGame" class="btn new-game">Start game</button>
         </div>
         <div v-if="logs.length" class="panel logs">
             <ul>    
